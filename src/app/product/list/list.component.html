@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-sm">
+        <h4>Products</h4>
+    </div>
+</div>&nbsp;
+
+<div class="row">
+    <div class="col-sm">
+        <!-- <a href="#" routerLinkl="add">Add Item</a> -->
+        <i class="fa fa-plus-circle fa-2x float-right" aria-hidden="true" routerLink="add">Add New Item</i>
+
+    </div>
+</div>&nbsp;
+
+<div class="row">
+    <div class="col-sm">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Code</th>
+                <th scope="col">Unit</th>
+                <th scope="col">Category</th>
+                <th scope="col">Sales Rate</th>
+                <th scope="col">Purchase Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let Product of products | async, index as i">
+                <td>{{ i+1 }}</td>
+                <td>{{ Product.name }}</td>
+                <td>{{ Product.code }}</td>
+                <td>{{ Product.unit.name }}</td>
+                <td>{{ Product.category.name }}</td>
+                <td>{{ Product.purchaseRate }}</td>
+                <td>{{ Product.salesRate }}</td>
+                <!-- <td><i class="fa fa-plus-circle fa-2x" aria-hidden="true" routerLink="add"></i></td> -->
+                <!-- <td><button class="delete-label fa-fa-trash-c" (click)="deleteProduct(product)"></button></td> -->
+                <!-- <td><i class="fa fa-trash fa-2x" aria-hidden="true" (click)="deleteProduct(product)"></i></td> -->
+                <td><button class='fa fa-eye' (click)='viewProduct(Product)' ></button></td>
+                <td><button class='delete-label fa fa-trash-o' (click)='deleteProduct(Product)' ></button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
